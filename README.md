@@ -1,3 +1,3 @@
 # HealthNews
 
-## Rxefy Tech -- Teechnical assignment
+## Rxefy Tech -- Technical assignment
