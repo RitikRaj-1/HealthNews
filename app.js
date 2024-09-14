@@ -4,11 +4,16 @@ const url = "https://newsapi.org/v2/everything?q="
 window.addEventListener("load", () => fetchNews("Health"));
 
 async function fetchNews(query) {
-    const res = await fetch(`${url}${query}&apiKey=${API_KEY}`)
-    const data = await res.json();
-    console.log(data);
-    bindData(data.articles);
+    try {
+        const res = await fetch(`/.Netlify/functions/fetchNews?q=${query}`); // Calling the Netlify function instead
+        const data = await res.json();
+        console.log('API Response:', data); // To check what the function returns
+        bindData(data.articles);
+    } catch (error) {
+        console.error('Error fetching news:', error);
+    }
 }
+
 
 function reload() {
     window.location.reload();
